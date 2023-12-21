@@ -1,0 +1,79 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                           RSI Divergence Limited |
+//|                                               forexroboteasy.com |
+//|                                          Developed by Forex Robot Easy Team |
+//+------------------------------------------------------------------+
+#property copyright 'forexroboteasy.com'
+#property link      'forexroboteasy.com'
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+#property indicator_chart_window
+
+input int RSI_Period = 14; // RSI period input
+input bool Draw_Histogram = true; // Choose between line or histogram drawing for RSI indicator
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Initialize your variables and settings here
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Perform necessary cleanup tasks here
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Perform necessary calculations and trading logic here
+    
+    double rsi = iRSI(NULL, 0, RSI_Period, PRICE_CLOSE, 0);
+    
+    // Check for regular divergence
+    if (CheckRegularDivergence())
+    {
+        // Execute trading logic for regular divergence
+        // ...
+    }
+    
+    // Check for hidden divergence
+    if (CheckHiddenDivergence())
+    {
+        // Execute trading logic for hidden divergence
+        // ...
+    }
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+bool CheckRegularDivergence()
+{
+    // Check for regular divergence logic here
+    // ...
+    
+    return true; // Replace with actual condition for regular divergence
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+bool CheckHiddenDivergence()
+{
+    // Check for hidden divergence logic here
+    // ...
+    
+    return true; // Replace with actual condition for hidden divergence
+}
